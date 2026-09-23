@@ -57,15 +57,40 @@
     .logo-main { font-size: 0.95rem; font-weight: 800; color: var(--heading-color); letter-spacing: 1px; text-transform: uppercase; line-height: 1.1; }
     .logo-sub { font-size: 0.65rem; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; }
 
-    .nav-right { display: flex; align-items: center; gap: 1.2rem; }
-    .nav-links { display: flex; gap: 1.2rem; }
+    .nav-right { display: flex; align-items: center; gap: 0.8rem; }
+    .nav-links { display: none; gap: 1.2rem; }
+    @media (min-width: 768px) {
+      .nav-links { display: flex; align-items: center; }
+    }
     .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
     .nav-links a:hover { color: var(--primary-light); }
 
-    /* NÚT CHUYỂN THEME GỌN ĐẸP */
+    /* NÚT CHUYỂN THEME */
     .theme-toggle { background: var(--card-bg); border: 1px solid var(--card-border); color: var(--heading-color); padding: 0.4rem 0.8rem; border-radius: 99px; cursor: pointer; font-size: 0.9rem; display: flex; align-items: center; gap: 0.4rem; }
 
-    /* LAYOUT BỐ CỤC */
+    /* NÚT HAMBURGER MENU MỞ MENU PHẢI */
+    .menu-btn { background: var(--card-bg); border: 1px solid var(--card-border); color: var(--heading-color); width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.2rem; }
+
+    /* FULLSCREEN / SIDEBAR MENU KIỂU MỚI (GIỐNG ẢNH MẪU) */
+    .fullscreen-menu { position: fixed; top: 0; right: -100%; width: 100%; max-width: 420px; height: 100vh; background: var(--bg-color); border-left: 1px solid var(--card-border); z-index: 1000; display: flex; flex-direction: column; transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1); box-shadow: -10px 0 30px rgba(0,0,0,0.3); overflow-y: auto; }
+    .fullscreen-menu.active { right: 0; }
+
+    .menu-header { display: flex; justify-content: flex-start; align-items: center; padding: 1.5rem; border-bottom: 1px solid var(--card-border); }
+    .close-menu-btn { background: none; border: none; color: var(--heading-color); font-size: 1rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem; }
+    .close-menu-btn:hover { color: var(--primary-light); }
+
+    .menu-body { padding: 1rem 1.5rem; display: flex; flex-direction: column; gap: 0.2rem; flex: 1; }
+    .menu-item { padding: 0.9rem 0; color: var(--heading-color); text-decoration: none; font-size: 1.05rem; font-weight: 500; border-bottom: 1px solid var(--card-border); display: flex; justify-content: space-between; align-items: center; }
+    .menu-item:hover { color: var(--primary-light); padding-left: 5px; }
+    
+    .menu-divider { height: 15px; border-bottom: 1px solid var(--card-border); margin-bottom: 1rem; }
+
+    /* KHU VỰC TAB CHỌN Ở DƯỚI MENU */
+    .menu-footer-tabs { padding: 1.5rem; border-top: 1px solid var(--card-border); background: var(--card-bg); display: flex; gap: 0.5rem; }
+    .tab-btn { flex: 1; padding: 0.7rem; border-radius: 10px; border: 1px solid var(--card-border); background: var(--input-bg); color: var(--text-muted); font-size: 0.85rem; font-weight: 600; cursor: pointer; text-align: center; }
+    .tab-btn.active { background: var(--heading-color); color: var(--bg-color); border-color: var(--heading-color); }
+
+    /* LAYOUT BỐ CỤC CHÍNH */
     main { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
     .section { padding: 3rem 0; }
     .eyebrow { color: var(--primary-light); font-size: 0.85rem; font-weight: 700; letter-spacing: 2px; margin-bottom: 0.5rem; text-transform: uppercase; }
@@ -85,7 +110,6 @@
     
     .btn { padding: 0.75rem 1.5rem; border-radius: 99px; font-weight: 600; text-decoration: none; display: inline-block; border: none; cursor: pointer; }
     .btn.primary { background: var(--primary); color: #fff; box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3); }
-    .btn.ghost { border: 1px solid var(--card-border); color: var(--text-color); background: var(--card-bg); }
 
     /* CARD ẢNH ĐẠI DIỆN TRÒN */
     .hero-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 24px; padding: 2rem 1.5rem; text-align: center; width: 100%; max-width: 300px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
@@ -98,7 +122,7 @@
     .glass { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 20px; padding: 2rem; margin-top: 1rem; box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
     .section-heading h2 { font-size: 1.8rem; color: var(--heading-color); }
     
-    /* LIÊN HỆ & FORM MỚI */
+    /* LIÊN HỆ & FORM */
     .contact-container { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 1rem; }
     @media (min-width: 768px) { .contact-container { grid-template-columns: 1fr 1fr; } }
 
@@ -106,7 +130,6 @@
     .contact-links { display: flex; flex-direction: column; gap: 0.8rem; margin-top: 1.2rem; }
     .contact-links a { padding: 0.75rem 1.2rem; background: var(--input-bg); border: 1px solid var(--card-border); border-radius: 12px; color: var(--text-color); text-decoration: none; font-size: 0.9rem; text-align: left; display: flex; align-items: center; gap: 0.5rem; }
 
-    /* FORM GỬI TIN NHẮN TRỰC TIẾP */
     .contact-form { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 24px; padding: 2rem 1.5rem; }
     .contact-form h3 { color: var(--heading-color); margin-bottom: 1rem; font-size: 1.2rem; }
     .form-group { margin-bottom: 1rem; text-align: left; }
@@ -115,10 +138,6 @@
     .form-group input:focus, .form-group textarea:focus { border-color: var(--primary); }
 
     footer { text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.8rem; border-top: 1px solid var(--card-border); }
-    
-    @media (max-width: 600px) {
-      .nav-links { display: none; }
-    }
   </style>
 </head>
 <body>
@@ -126,7 +145,6 @@
   <div class="bg-orb orb-2"></div>
 
   <nav class="nav">
-    <!-- LOGO TÍCH HỢP SMASHANFT COLLECTIVE -->
     <a class="logo-brand" href="#home">
       <div class="logo-icon">SC</div>
       <div class="logo-texts">
@@ -141,18 +159,55 @@
         <a href="#about">Giới thiệu</a>
         <a href="#contact">Liên hệ</a>
       </div>
-      <!-- NÚT ĐỔI GIAO DIỆN SÁNG / TỐI -->
+
       <button class="theme-toggle" id="themeToggle">
-        <span id="themeIcon">🌙</span> <span id="themeText">Tối</span>
+        <span id="themeIcon">🌙</span>
+      </button>
+
+      <!-- NÚT MỞ MENU GÓC PHẢI -->
+      <button class="menu-btn" id="menuBtn">
+        ☰
       </button>
     </div>
   </nav>
+
+  <!-- GIAO DIỆN MENU TRƯỢT PHẢI GIỐNG ẢNH MẪU -->
+  <div class="fullscreen-menu" id="fullscreenMenu">
+    <div class="menu-header">
+      <button class="close-menu-btn" id="closeMenuBtn">
+        ✕ Đóng
+      </button>
+    </div>
+    
+    <div class="menu-body">
+      <a href="#home" class="menu-item">Có gì mới? ➔</a>
+      <a href="#about" class="menu-item">Giới thiệu dự án ➔</a>
+      <a href="#contact" class="menu-item">Liên hệ trực tiếp ➔</a>
+      <a href="https://www.facebook.com/share/1DnvEU4bX8/?mibextid=wwXIfr" target="_blank" class="menu-item">Mạng xã hội (Facebook) ➔</a>
+      <a href="https://www.tiktok.com/@i.lher?_r=1&_t=ZS-99yJZCaqYbe" target="_blank" class="menu-item">Kênh TikTok ➔</a>
+      
+      <div class="menu-divider"></div>
+
+      <a href="#contact" class="menu-item">Gửi tin nhắn</a>
+      <a href="tel:0962058971" class="menu-item">Gọi điện nhanh: 0962 058 971</a>
+
+      <div class="menu-divider"></div>
+
+      <a href="#" class="menu-item" style="font-size: 0.9rem; color: var(--text-muted);">Tìm cửa hàng / Không gian sáng tạo</a>
+      <a href="#" class="menu-item" style="font-size: 0.9rem; color: var(--text-muted);">Thay đổi ngôn ngữ: Tiếng Việt</a>
+    </div>
+
+    <!-- TAB CHUYỂN ĐỔI Ở DƯỚI CÙNG GIỐNG ẢNH MẪU -->
+    <div class="menu-footer-tabs">
+      <button class="tab-btn active">Smshanft Collective</button>
+      <button class="tab-btn">Phạm Chí Đức</button>
+    </div>
+  </div>
 
   <main>
     <section class="hero section" id="home">
       <div class="hero-text">
         <p class="eyebrow">XIN CHÀO 👋 — PHẠM CHÍ ĐỨC</p>
-        <!-- HIỆU ỨNG GÕ CHỮ TỰ ĐỘNG -->
         <h1>Xây dựng tương lai với <span class="typed-text" id="typedText"></span></h1>
         <p class="lead">Chào mừng bạn đến với không gian số của Smshanft Collective – nơi hội tụ của sự sáng tạo, công nghệ và những ý tưởng độc bản.</p>
         <div class="actions">
@@ -185,7 +240,6 @@
       </div>
       
       <div class="contact-container">
-        <!-- FORM GỬI TIN NHẮN TRỰC TIẾP -->
         <div class="contact-form">
           <h3>Gửi tin nhắn trực tiếp</h3>
           <form action="https://formspree.io/f/xbjnqkyv" method="POST">
@@ -205,7 +259,6 @@
           </form>
         </div>
 
-        <!-- MẠNG XÃ HỘI & THÔNG TIN -->
         <div class="contact-box">
           <h3 style="color: var(--heading-color); margin-bottom: 0.5rem; font-size: 1.2rem; text-align: left;">Kênh truyền thông</h3>
           <p style="color: var(--text-muted); font-size: 0.85rem; text-align: left;">Liên hệ trực tiếp qua số điện thoại hoặc các kênh chính thức:</p>
@@ -224,18 +277,16 @@
     <p>© 2026 Smshanft Collective. Designed by Phạm Chí Đức.</p>
   </footer>
 
-  <!-- JAVASCRIPT XỬ LÝ TÍNH NĂNG -->
+  <!-- JAVASCRIPT XỬ LÝ -->
   <script>
-    // 1. TÍNH NĂNG ĐỔI GIAO DIỆN SÁNG / TỐI (LIGHT/DARK MODE)
+    // 1. ĐỔI GIAO DIỆN SÁNG / TỐI
     const themeToggleBtn = document.getElementById('themeToggle');
     const themeIcon = document.getElementById('themeIcon');
-    const themeText = document.getElementById('themeText');
     
     const currentTheme = localStorage.getItem('theme') || 'dark';
     if (currentTheme === 'light') {
       document.documentElement.setAttribute('data-theme', 'light');
       themeIcon.textContent = '☀️';
-      themeText.textContent = 'Sáng';
     }
 
     themeToggleBtn.addEventListener('click', () => {
@@ -244,20 +295,36 @@
         document.documentElement.removeAttribute('data-theme');
         localStorage.setItem('theme', 'dark');
         themeIcon.textContent = '🌙';
-        themeText.textContent = 'Tối';
       } else {
         document.documentElement.setAttribute('data-theme', 'light');
         localStorage.setItem('theme', 'light');
         themeIcon.textContent = '☀️';
-        themeText.textContent = 'Sáng';
       }
     });
 
-    // 2. TÍNH NĂNG HIỆU ỨNG GÕ CHỮ TỰ ĐỘNG (TYPING ANIMATION)
+    // 2. MỞ / ĐÓNG MENU TRƯỢT PHẢI
+    const menuBtn = document.getElementById('menuBtn');
+    const closeMenuBtn = document.getElementById('closeMenuBtn');
+    const fullscreenMenu = document.getElementById('fullscreenMenu');
+    const menuItems = document.querySelectorAll('.menu-item');
+
+    menuBtn.addEventListener('click', () => {
+      fullscreenMenu.classList.add('active');
+    });
+
+    closeMenuBtn.addEventListener('click', () => {
+      fullscreenMenu.classList.remove('active');
+    });
+
+    menuItems.forEach(item => {
+      item.addEventListener('click', () => {
+        fullscreenMenu.classList.remove('active');
+      });
+    });
+
+    // 3. HIỆU ỨNG GÕ CHỮ
     const words = ["Smshanft Collective.", "Innovation.", "Modern Design.", "Creative Ideas."];
     let i = 0;
-    let timer;
-
     function typingEffect() {
       let word = words[i].split("");
       var loopTyping = function() {
@@ -267,7 +334,7 @@
           setTimeout(deletingEffect, 2000);
           return false;
         }
-        timer = setTimeout(loopTyping, 100);
+        setTimeout(loopTyping, 100);
       };
       loopTyping();
     }
@@ -279,15 +346,11 @@
           word.pop();
           document.getElementById('typedText').innerHTML = word.join("");
         } else {
-          if (words.length > (i + 1)) {
-            i++;
-          } else {
-            i = 0;
-          }
+          i = (words.length > (i + 1)) ? i + 1 : 0;
           setTimeout(typingEffect, 500);
           return false;
         }
-        timer = setTimeout(loopDeleting, 50);
+        setTimeout(loopDeleting, 50);
       };
       loopDeleting();
     }
