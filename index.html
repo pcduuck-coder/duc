@@ -3,15 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Website cá nhân của Phạm Chí Đức - Nơi chia sẻ dự án, kỹ năng và tiểu sử cá nhân.">
   <title>Website cá nhân | Phạm Chí Đức</title>
-
-  <!-- Preconnect & Fonts -->
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="style.css">
+  <style>
+    /* RESET & NỀN TỐI */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-family: 'Inter', sans-serif; background-color: #0b0f17; color: #e2e8f0; }
+    body { overflow-x: hidden; position: relative; line-height: 1.6; }
+
+    /* NỀN HIỆU ỨNG GLOW */
+    .bg-orb { position: fixed; border-radius: 50%; filter: blur(120px); z-index: -1; opacity: 0.35; pointer-events: none; }
+    .orb-1 { width: 350px; height: 350px; background: #6366f1; top: -50px; left: -50px; }
+    .orb-2 { width: 400px; height: 400px; background: #a855f7; bottom: -100px; right: -100px; }
+
+    /* NAVBAR */
+    .nav { position: sticky; top: 0; display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: rgba(11, 15, 23, 0.8); backdrop-filter: blur(12px); z-index: 100; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+    .logo { font-size: 1.2rem; font-weight: 800; color: #fff; text-decoration: none; }
+    .logo span { color: #6366f1; }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a { color: #94a3b8; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.3s; }
+    .nav-links a:hover { color: #6366f1; }
+    .menu-btn { display: none; background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
+
+    /* LAYOUT BỐ CỤC */
+    main { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
+    .section { padding: 4rem 0; }
+    .eyebrow { color: #818cf8; font-size: 0.85rem; font-weight: 700; letter-spacing: 2px; margin-bottom: 0.5rem; text-transform: uppercase; }
+
+    /* HERO SECTION */
+    .hero { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; align-items: center; min-height: 75vh; }
+    .hero-text h1 { font-size: 2.5rem; font-weight: 800; line-height: 1.2; color: #fff; margin-bottom: 1rem; }
+    .hero-text h1 span { background: linear-gradient(135deg, #818cf8, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .lead { font-size: 1.1rem; color: #94a3b8; margin-bottom: 2rem; }
+    .actions { display: flex; gap: 1rem; }
+    .btn { padding: 0.75rem 1.75rem; border-radius: 99px; font-weight: 600; text-decoration: none; transition: all 0.3s; }
+    .btn.primary { background: #6366f1; color: #fff; box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4); }
+    .btn.ghost { border: 1px solid rgba(255, 255, 255, 0.15); color: #e2e8f0; }
+
+    /* KHUNG ẢNH ĐẠI DIỆN TRÒN */
+    .hero-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 24px; padding: 2.5rem 1.5rem; text-align: center; backdrop-filter: blur(10px); }
+    .avatar-container { width: 140px; height: 140px; margin: 0 auto 1.5rem; }
+    .avatar-img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 3px solid #6366f1; box-shadow: 0 0 25px rgba(99, 102, 241, 0.3); }
+    .hero-card h2 { font-size: 1.4rem; color: #fff; margin-bottom: 0.25rem; }
+    .hero-card p { color: #94a3b8; font-size: 0.9rem; }
+
+    /* CÁC NỘI DUNG KHÁC */
+    .section-heading h2 { font-size: 2rem; color: #fff; margin-bottom: 2rem; }
+    .glass { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px; padding: 2.5rem; }
+    .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 1.5rem; }
+    .facts div strong { display: block; font-size: 1.2rem; color: #818cf8; }
+    .facts div span { font-size: 0.85rem; color: #94a3b8; }
+
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+    .skill-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px; padding: 2rem; }
+    .skill-card h3 { color: #fff; margin-bottom: 0.5rem; }
+    .skill-card p { color: #94a3b8; font-size: 0.9rem; }
+
+    .contact-box { background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.1)); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 24px; padding: 3rem 2rem; text-align: center; }
+    .contact-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; }
+    .contact-links a { padding: 0.75rem 1.5rem; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 99px; color: #fff; text-decoration: none; }
+
+    footer { text-align: center; padding: 2rem; color: #64748b; font-size: 0.85rem; border-top: 1px solid rgba(255, 255, 255, 0.05); }
+
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .menu-btn { display: block; }
+      .hero-text h1 { font-size: 1.8rem; }
+      .facts { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
   <div class="bg-orb orb-1"></div>
@@ -19,8 +84,8 @@
 
   <nav class="nav">
     <a class="logo" href="#home">PHẠM CHÍ ĐỨC<span>.</span></a>
-    <button class="menu-btn" id="menuBtn" aria-label="Mở menu" aria-expanded="false">☰</button>
-    <div class="nav-links" id="navLinks">
+    <button class="menu-btn">☰</button>
+    <div class="nav-links">
       <a href="#home">Trang chủ</a>
       <a href="#about">Giới thiệu</a>
       <a href="#bio">Tiểu sử</a>
@@ -31,9 +96,8 @@
   </nav>
 
   <main>
-    <!-- HERO SECTION -->
     <section class="hero section" id="home">
-      <div class="hero-text reveal">
+      <div class="hero-text">
         <p class="eyebrow">XIN CHÀO 👋</p>
         <h1>Mình là <span>Phạm Chí Đức</span>.<br>Chào mừng bạn đến với góc nhỏ của mình.</h1>
         <p class="lead">Một website cá nhân để chia sẻ về bản thân, những điều mình yêu thích và các dự án mình đang thực hiện.</p>
@@ -42,151 +106,46 @@
           <a class="btn ghost" href="#contact">Liên hệ</a>
         </div>
       </div>
-      <div class="hero-card reveal">
-        <!-- Ảnh đại diện cá nhân -->
+      <div class="hero-card">
         <div class="avatar-container">
-          <img src="image.png.jpg" alt="Ảnh đại diện của Phạm Chí Đức" class="avatar-img">
+          <img src="image.png.jpg" alt="Ảnh đại diện" class="avatar-img">
         </div>
         <h2>Phạm Chí Đức</h2>
         <p>Creator • Technology • Design</p>
-        <div class="status"><span></span> Đang khám phá những điều mới</div>
       </div>
     </section>
 
-    <!-- ABOUT SECTION (GIỚI THIỆU & HÌNH ẢNH CÁ NHÂN) -->
     <section class="section" id="about">
-      <div class="section-heading reveal">
+      <div class="section-heading">
         <p class="eyebrow">01 — GIỚI THIỆU</p>
         <h2>Một chút về mình</h2>
       </div>
-      <div class="about-grid">
-        <!-- Khung chứa ảnh giới thiệu cá nhân -->
-        <div class="about-image-card glass reveal">
-          <img src="image.png.jpg" alt="Hình ảnh cá nhân của Phạm Chí Đức" class="about-img">
-        </div>
-        <div class="glass reveal">
-          <p>Mình là một người yêu thích công nghệ, thiết kế và việc tạo ra những thứ hữu ích. Website này là nơi mình lưu lại các dự án, sở thích và những hành trình đáng nhớ.</p>
-          <p>Trong thời gian tới, mình muốn tiếp tục học hỏi, thử nghiệm nhiều ý tưởng mới và biến chúng thành những sản phẩm thực tế.</p>
-          <div class="facts">
-            <div><strong>01</strong><span>Đam mê công nghệ</span></div>
-            <div><strong>02</strong><span>Yêu thích sáng tạo</span></div>
-            <div><strong>03</strong><span>Luôn học hỏi</span></div>
-          </div>
+      <div class="glass">
+        <p>Mình là một người yêu thích công nghệ, thiết kế và việc tạo ra những thứ hữu ích. Website này là nơi mình lưu lại các dự án, sở thích và những hành trình đáng nhớ.</p>
+        <div class="facts">
+          <div><strong>01</strong><span>Đam mê công nghệ</span></div>
+          <div><strong>02</strong><span>Yêu thích sáng tạo</span></div>
+          <div><strong>03</strong><span>Luôn học hỏi</span></div>
         </div>
       </div>
     </section>
 
-    <!-- BIO SECTION (TIỂU SỬ CÁ NHÂN) -->
-    <section class="section" id="bio">
-      <div class="section-heading reveal">
-        <p class="eyebrow">02 — TIỂU SỬ CÁ NHÂN</p>
-        <h2>Hành trình & Cột mốc</h2>
-      </div>
-      <div class="bio-timeline glass reveal">
-        <div class="bio-item">
-          <span class="bio-year">2021 - 2023</span>
-          <div class="bio-content">
-            <h3>Nét vẽ đầu tiên & Bước khởi đầu</h3>
-            <p>Bắt đầu hành trình với sự tò mò vô tận dành cho thế giới số. Mình dành thời gian tự học những dòng code đầu tiên, khám phá tư duy thiết kế và tìm kiếm bản sắc riêng trong lĩnh vực công nghệ sáng tạo.</p>
-          </div>
-        </div>
-        <div class="bio-item">
-          <span class="bio-year">2023 - 2025</span>
-          <div class="bio-content">
-            <h3>Dấn thân & Trải nghiệm thực tế</h3>
-            <p>Chuyển từ lý thuyết sang hành động bằng việc thực hiện các dự án cá nhân, thiết kế giao diện UI/UX tối ưu trải nghiệm người dùng và thử nghiệm các công nghệ phát triển web hiện đại.</p>
-          </div>
-        </div>
-        <div class="bio-item">
-          <span class="bio-year">Hiện tại</span>
-          <div class="bio-content">
-            <h3>Kiến tạo sản phẩm & Vươn xa</h3>
-            <p>Tập trung hoàn thiện các sản phẩm có chiều sâu, kết hợp giữa tính thẩm mỹ và công nghệ vượt trội. Luôn giữ tinh thần học hỏi không ngừng và sẵn sàng đón nhận những cơ hội hợp tác bứt phá.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SKILLS SECTION -->
-    <section class="section" id="skills">
-      <div class="section-heading reveal">
-        <p class="eyebrow">03 — KỸ NĂNG</p>
-        <h2>Những gì mình quan tâm</h2>
-      </div>
-      <div class="cards">
-        <article class="skill-card reveal">
-          <div class="icon" aria-hidden="true">⌘</div>
-          <h3>Công nghệ</h3>
-          <p>Khám phá phần mềm, thiết bị và các công nghệ mới.</p>
-        </article>
-        <article class="skill-card reveal">
-          <div class="icon" aria-hidden="true">✦</div>
-          <h3>Thiết kế</h3>
-          <p>Quan tâm đến giao diện, hình ảnh và trải nghiệm người dùng.</p>
-        </article>
-        <article class="skill-card reveal">
-          <div class="icon" aria-hidden="true">⚡</div>
-          <h3>Sáng tạo</h3>
-          <p>Biến ý tưởng thành nội dung và sản phẩm có giá trị.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- PROJECTS SECTION -->
-    <section class="section" id="projects">
-      <div class="section-heading reveal">
-        <p class="eyebrow">04 — DỰ ÁN</p>
-        <h2>Một số dự án</h2>
-      </div>
-      <div class="projects">
-        <article class="project reveal">
-          <div class="project-number">01</div>
-          <div>
-            <h3>Website cá nhân</h3>
-            <p>Trang giới thiệu bản thân với giao diện hiện đại, tối ưu cho điện thoại.</p>
-          </div>
-          <span class="tag">WEB</span>
-        </article>
-        <article class="project reveal">
-          <div class="project-number">02</div>
-          <div>
-            <h3>Dự án sáng tạo</h3>
-            <p>Nơi trình bày những ý tưởng, thiết kế và sản phẩm cá nhân.</p>
-          </div>
-          <span class="tag">DESIGN</span>
-        </article>
-        <article class="project reveal">
-          <div class="project-number">03</div>
-          <div>
-            <h3>Dự án tương lai</h3>
-            <p>Đang được xây dựng. Hãy quay lại để xem những cập nhật mới.</p>
-          </div>
-          <span class="tag">COMING</span>
-        </article>
-      </div>
-    </section>
-
-    <!-- CONTACT SECTION -->
-    <section class="section contact" id="contact">
-      <div class="contact-box reveal">
-        <p class="eyebrow">05 — LIÊN HỆ</p>
-        <h2>Hãy kết nối với mình.</h2>
-        <p>Nếu bạn muốn trao đổi hoặc hợp tác, hãy gửi cho mình một lời nhắn.</p>
+    <section class="section" id="contact">
+      <div class="contact-box">
+        <p class="eyebrow">02 — LIÊN HỆ</p>
+        <h2>Hãy kết nối với mình</h2>
         <div class="contact-links">
           <a href="tel:0962058971">📞 0962 058 971</a>
           <a href="mailto:duuck@gmail.com">✉ Email</a>
-          <a href="https://www.facebook.com/share/1DnvEU4bX8/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">f Facebook</a>
-          <a href="https://www.tiktok.com/@i.lher?_r=1&_t=ZS-99yJZCaqYbe" target="_blank" rel="noopener noreferrer">♪ TikTok</a>
+          <a href="https://www.facebook.com/share/1DnvEU4bX8/?mibextid=wwXIfr" target="_blank">Facebook</a>
+          <a href="https://www.tiktok.com/@i.lher?_r=1&_t=ZS-99yJZCaqYbe" target="_blank">TikTok</a>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>© <span id="year"></span> Phạm Chí Đức. Made with ♥</p>
+    <p>© Phạm Chí Đức. Made with ♥</p>
   </footer>
-
-  <button class="top-btn" id="topBtn" aria-label="Lên đầu trang">↑</button>
-  <script src="script.js"></script>
 </body>
 </html>
