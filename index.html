@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Website cá nhân | Phạm Chí Đức</title>
+  <title>Smshanft Collective | Phạm Chí Đức</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,8 +49,14 @@
 
     /* NAVBAR */
     .nav { position: sticky; top: 0; display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: var(--nav-bg); backdrop-filter: blur(12px); z-index: 100; border-bottom: 1px solid var(--card-border); }
-    .logo { font-size: 1.2rem; font-weight: 800; color: var(--heading-color); text-decoration: none; }
-    .logo span { color: var(--primary); }
+    
+    /* LOGO THƯƠNG HIỆU TÍCH HỢP */
+    .logo-brand { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+    .logo-icon { width: 32px; height: 32px; background: var(--heading-color); color: var(--bg-color); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.9rem; }
+    .logo-texts { display: flex; flex-direction: column; }
+    .logo-main { font-size: 0.95rem; font-weight: 800; color: var(--heading-color); letter-spacing: 1px; text-transform: uppercase; line-height: 1.1; }
+    .logo-sub { font-size: 0.65rem; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; }
+
     .nav-right { display: flex; align-items: center; gap: 1.2rem; }
     .nav-links { display: flex; gap: 1.2rem; }
     .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
@@ -120,7 +126,15 @@
   <div class="bg-orb orb-2"></div>
 
   <nav class="nav">
-    <a class="logo" href="#home">PHẠM CHÍ ĐỨC<span>.</span></a>
+    <!-- LOGO TÍCH HỢP SMASHANFT COLLECTIVE -->
+    <a class="logo-brand" href="#home">
+      <div class="logo-icon">SC</div>
+      <div class="logo-texts">
+        <span class="logo-main">Smshanft</span>
+        <span class="logo-sub">Collective</span>
+      </div>
+    </a>
+    
     <div class="nav-right">
       <div class="nav-links">
         <a href="#home">Trang chủ</a>
@@ -137,10 +151,10 @@
   <main>
     <section class="hero section" id="home">
       <div class="hero-text">
-        <p class="eyebrow">XIN CHÀO 👋</p>
+        <p class="eyebrow">XIN CHÀO 👋 — PHẠM CHÍ ĐỨC</p>
         <!-- HIỆU ỨNG GÕ CHỮ TỰ ĐỘNG -->
-        <h1>Mình là Phạm Chí Đức.<br>Mình làm <span class="typed-text" id="typedText"></span></h1>
-        <p class="lead">Chào mừng bạn đến với góc nhỏ cá nhân – nơi chia sẻ đam mê, dự án và hành trình sáng tạo của mình.</p>
+        <h1>Xây dựng tương lai với <span class="typed-text" id="typedText"></span></h1>
+        <p class="lead">Chào mừng bạn đến với không gian số của Smshanft Collective – nơi hội tụ của sự sáng tạo, công nghệ và những ý tưởng độc bản.</p>
         <div class="actions">
           <a class="btn primary" href="#contact">Liên hệ ngay</a>
         </div>
@@ -150,28 +164,28 @@
           <img src="image.png.jpg" alt="Ảnh đại diện" class="avatar-img">
         </div>
         <h2>Phạm Chí Đức</h2>
-        <p>Creator • Technology • Design</p>
+        <p>Founder @ Smshanft Collective</p>
       </div>
     </section>
 
     <section class="section" id="about">
       <div class="section-heading">
         <p class="eyebrow">01 — GIỚI THIỆU</p>
-        <h2>Một chút về mình</h2>
+        <h2>Về Smshanft Collective</h2>
       </div>
       <div class="glass">
-        <p>Mình là một người yêu thích công nghệ, thiết kế và sáng tạo nội dung. Website này là không gian lưu giữ những dự án cá nhân, kinh nghiệm làm việc và những điều thú vị mà mình học hỏi được.</p>
+        <p>Được xây dựng từ một ý tưởng độc bản mã hóa qua những con số, <strong>Smshanft Collective</strong> là không gian cá nhân và dự án sáng tạo của Phạm Chí Đức. Nơi đây tập trung khai thác các giải pháp công nghệ, thiết kế tối giản và các sản phẩm mang dấu ấn cá tính riêng biệt.</p>
       </div>
     </section>
 
     <section class="section" id="contact">
       <div class="section-heading">
         <p class="eyebrow">02 — LIÊN HỆ</p>
-        <h2>Kết nối với mình</h2>
+        <h2>Kết nối với chúng tôi</h2>
       </div>
       
       <div class="contact-container">
-        <!-- FORM GỬI TIN NHẮN TRỰC TIẾP (Thay YOUR_FORMSPREE_ID nếu có) -->
+        <!-- FORM GỬI TIN NHẮN TRỰC TIẾP -->
         <div class="contact-form">
           <h3>Gửi tin nhắn trực tiếp</h3>
           <form action="https://formspree.io/f/xbjnqkyv" method="POST">
@@ -194,7 +208,7 @@
         <!-- MẠNG XÃ HỘI & THÔNG TIN -->
         <div class="contact-box">
           <h3 style="color: var(--heading-color); margin-bottom: 0.5rem; font-size: 1.2rem; text-align: left;">Kênh truyền thông</h3>
-          <p style="color: var(--text-muted); font-size: 0.85rem; text-align: left;">Bạn có thể liên hệ trực tiếp qua số điện thoại hoặc các mạng xã hội bên dưới:</p>
+          <p style="color: var(--text-muted); font-size: 0.85rem; text-align: left;">Liên hệ trực tiếp qua số điện thoại hoặc các kênh chính thức:</p>
           <div class="contact-links">
             <a href="tel:0962058971">📞 Điện thoại: 0962 058 971</a>
             <a href="mailto:duuck@gmail.com">✉ Email: duuck@gmail.com</a>
@@ -207,7 +221,7 @@
   </main>
 
   <footer>
-    <p>© Phạm Chí Đức. Made with ♥</p>
+    <p>© 2026 Smshanft Collective. Designed by Phạm Chí Đức.</p>
   </footer>
 
   <!-- JAVASCRIPT XỬ LÝ TÍNH NĂNG -->
@@ -217,7 +231,6 @@
     const themeIcon = document.getElementById('themeIcon');
     const themeText = document.getElementById('themeText');
     
-    // Kiểm tra cài đặt cũ
     const currentTheme = localStorage.getItem('theme') || 'dark';
     if (currentTheme === 'light') {
       document.documentElement.setAttribute('data-theme', 'light');
@@ -241,7 +254,7 @@
     });
 
     // 2. TÍNH NĂNG HIỆU ỨNG GÕ CHỮ TỰ ĐỘNG (TYPING ANIMATION)
-    const words = ["Creator.", "Developer.", "Designer.", "Tech Enthusiast."];
+    const words = ["Smshanft Collective.", "Innovation.", "Modern Design.", "Creative Ideas."];
     let i = 0;
     let timer;
 
