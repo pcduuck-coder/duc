@@ -8,7 +8,7 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <style>
     /* BIẾN MÀU MẶC ĐỊNH (DARK MODE) */
@@ -23,7 +23,6 @@
       --primary: #6366f1;
       --primary-light: #818cf8;
       --input-bg: rgba(255, 255, 255, 0.05);
-      --terminal-bg: #05070a;
     }
 
     /* BIẾN MÀU LIGHT MODE */
@@ -38,7 +37,6 @@
       --primary: #4f46e5;
       --primary-light: #6366f1;
       --input-bg: #f1f5f9;
-      --terminal-bg: #1e293b;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; transition: background-color 0.3s, color 0.3s, border-color 0.3s; }
@@ -107,20 +105,13 @@
     .btn.primary { background: var(--primary); color: #fff; box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3); }
     .btn.ghost { border: 1px solid var(--card-border); color: var(--text-color); background: var(--card-bg); }
 
-    /* HERO CARD & STATS */
+    /* HERO CARD */
     .hero-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 24px; padding: 2rem 1.5rem; text-align: center; width: 100%; max-width: 320px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
     .avatar-container { width: 130px; height: 130px; margin: 0 auto 1rem; }
     .avatar-img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 3px solid var(--primary); box-shadow: 0 0 20px rgba(99, 102, 241, 0.3); }
     .hero-card h2 { font-size: 1.3rem; color: var(--heading-color); }
     .hero-card p { color: var(--text-muted); font-size: 0.85rem; }
     .local-time { font-size: 0.8rem; color: var(--primary-light); margin-top: 0.5rem; font-weight: 600; }
-
-    /* STATS BANNER SECTION */
-    .stats-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 2rem; }
-    @media (min-width: 768px) { .stats-container { grid-template-columns: repeat(4, 1fr); } }
-    .stat-card { background: var(--card-bg); border: 1px solid var(--card-border); padding: 1.5rem; border-radius: 16px; text-align: center; }
-    .stat-number { font-size: 1.8rem; font-weight: 800; color: var(--heading-color); margin-bottom: 0.2rem; }
-    .stat-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
 
     /* FILTER TABS CHO BENTO GRID */
     .section-header-flex { display: flex; flex-direction: column; gap: 1rem; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; }
@@ -146,17 +137,6 @@
     .skills-container { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.5rem; }
     .skill-pill { background: var(--card-bg); border: 1px solid var(--card-border); padding: 0.6rem 1.2rem; border-radius: 99px; font-size: 0.85rem; font-weight: 600; color: var(--heading-color); display: flex; align-items: center; gap: 0.5rem; }
     .skill-pill:hover { border-color: var(--primary); background: var(--input-bg); }
-
-    /* INTERACTIVE TERMINAL SECTION */
-    .terminal-box { background: var(--terminal-bg); border: 1px solid var(--card-border); border-radius: 16px; font-family: 'Fira Code', monospace; overflow: hidden; margin-top: 1.5rem; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
-    .terminal-header { background: rgba(255,255,255,0.05); padding: 0.75rem 1rem; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid var(--card-border); }
-    .t-dot { width: 12px; height: 12px; border-radius: 50%; }
-    .t-red { background: #ef4444; } .t-yellow { background: #f59e0b; } .t-green { background: #10b981; }
-    .terminal-title { font-size: 0.75rem; color: var(--text-muted); margin-left: auto; margin-right: auto; }
-    .terminal-body { padding: 1.2rem; font-size: 0.85rem; color: #38bdf8; max-height: 220px; overflow-y: auto; line-height: 1.7; }
-    .terminal-input-row { display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.2rem; border-top: 1px solid var(--card-border); background: rgba(0,0,0,0.2); }
-    .terminal-prompt { color: #10b981; font-weight: bold; font-family: 'Fira Code', monospace; }
-    .terminal-input { background: transparent; border: none; color: #fff; font-family: 'Fira Code', monospace; font-size: 0.85rem; width: 100%; outline: none; }
 
     /* JOURNAL / BLOG SECTION */
     .journal-grid { display: grid; grid-template-columns: 1fr; gap: 1.2rem; margin-top: 1.5rem; }
@@ -229,7 +209,6 @@
         <a href="#home" data-i18n="nav_home">Trang chủ</a>
         <a href="#projects" data-i18n="nav_projects">Dự án</a>
         <a href="#skills" data-i18n="nav_skills">Kỹ năng</a>
-        <a href="#terminal-sec" data-i18n="nav_terminal">Terminal</a>
         <a href="#journal" data-i18n="nav_journal">Nhật ký</a>
         <a href="#about" data-i18n="nav_about">Giới thiệu</a>
         <a href="#contact" data-i18n="nav_contact">Liên hệ</a>
@@ -274,26 +253,6 @@
         <div class="local-time" id="localTime">🕒 --:--:-- GMT+7</div>
       </div>
     </section>
-
-    <!-- STATS COUNTER BANNER -->
-    <div class="stats-container">
-      <div class="stat-card">
-        <div class="stat-number">15+</div>
-        <div class="stat-label" data-i18n="stat_1">Dự án hoàn thành</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">100%</div>
-        <div class="stat-label" data-i18n="stat_2">Sự hài lòng</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">3+</div>
-        <div class="stat-label" data-i18n="stat_3">Năm kinh nghiệm</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">24/7</div>
-        <div class="stat-label" data-i18n="stat_4">Sẵn sàng hỗ trợ</div>
-      </div>
-    </div>
 
     <!-- BENTO GRID PORTFOLIO SECTION VỚI BỘ LỌC -->
     <section class="section" id="projects">
@@ -363,34 +322,10 @@
       </div>
     </section>
 
-    <!-- INTERACTIVE TERMINAL SECTION -->
-    <section class="section" id="terminal-sec">
-      <div class="section-heading">
-        <p class="eyebrow">03 — INTERACTIVE TERMINAL</p>
-        <h2>Trải nghiệm dòng lệnh</h2>
-      </div>
-      <div class="terminal-box">
-        <div class="terminal-header">
-          <div class="t-dot t-red"></div>
-          <div class="t-dot t-yellow"></div>
-          <div class="t-dot t-green"></div>
-          <div class="terminal-title">smshanft-cli — bash — 80x24</div>
-        </div>
-        <div class="terminal-body" id="terminalOutput">
-          > Chào mừng đến với Smshanft Collective CLI.<br>
-          > Gõ lệnh <span style="color:#10b981">help</span> để xem danh sách lệnh khả dụng.
-        </div>
-        <div class="terminal-input-row">
-          <span class="terminal-prompt">duc@smshanft:~$</span>
-          <input type="text" class="terminal-input" id="terminalInput" placeholder="Nhập lệnh (ví dụ: help, about, skills, contact, clear)...">
-        </div>
-      </div>
-    </section>
-
     <!-- JOURNAL / BLOG SECTION -->
     <section class="section" id="journal">
       <div class="section-heading">
-        <p class="eyebrow" data-i18n="journal_eyebrow">04 — NHẬT KÝ & SUY NGẪM</p>
+        <p class="eyebrow" data-i18n="journal_eyebrow">03 — NHẬT KÝ & SUY NGẪM</p>
         <h2 data-i18n="journal_heading">Góc chia sẻ & Tư duy</h2>
       </div>
       <div class="journal-grid">
@@ -424,7 +359,7 @@
     <!-- ABOUT SECTION -->
     <section class="section" id="about">
       <div class="section-heading">
-        <p class="eyebrow" data-i18n="about_eyebrow">05 — GIỚI THIỆU</p>
+        <p class="eyebrow" data-i18n="about_eyebrow">04 — GIỚI THIỆU</p>
         <h2 data-i18n="about_heading">Về Smshanft Collective</h2>
       </div>
       <div class="glass">
@@ -435,7 +370,7 @@
     <!-- CONTACT SECTION -->
     <section class="section" id="contact">
       <div class="section-heading">
-        <p class="eyebrow" data-i18n="contact_eyebrow">06 — LIÊN HỆ</p>
+        <p class="eyebrow" data-i18n="contact_eyebrow">05 — LIÊN HỆ</p>
         <h2 data-i18n="contact_heading">Kết nối với chúng tôi</h2>
       </div>
       
@@ -487,7 +422,6 @@
         <div class="cmd-item" onclick="scrollToSection('home'); closeCmd();">🏠 Chuyển đến Trang chủ <span>Home</span></div>
         <div class="cmd-item" onclick="scrollToSection('projects'); closeCmd();">⚡ Xem phần Dự án <span>Projects</span></div>
         <div class="cmd-item" onclick="scrollToSection('skills'); closeCmd();">🛠️ Xem Kỹ năng chuyên môn <span>Skills</span></div>
-        <div class="cmd-item" onclick="scrollToSection('terminal-sec'); closeCmd();">💻 Trải nghiệm Terminal <span>Terminal</span></div>
         <div class="cmd-item" onclick="scrollToSection('journal'); closeCmd();">📖 Đọc Nhật ký & Suy ngẫm <span>Journal</span></div>
         <div class="cmd-item" onclick="scrollToSection('about'); closeCmd();">ℹ️ Về Smshanft Collective <span>About</span></div>
         <div class="cmd-item" onclick="scrollToSection('contact'); closeCmd();">✉ Gửi tin nhắn liên hệ <span>Contact</span></div>
@@ -536,7 +470,6 @@
         nav_home: "Trang chủ",
         nav_projects: "Dự án",
         nav_skills: "Kỹ năng",
-        nav_terminal: "Terminal",
         nav_journal: "Nhật ký",
         nav_about: "Giới thiệu",
         nav_contact: "Liên hệ",
@@ -545,10 +478,6 @@
         hero_desc: "Chào mừng bạn đến với không gian số của Smshanft Collective – nơi hội tụ của sự sáng tạo, công nghệ và những ý tưởng độc bản.",
         btn_contact: "Liên hệ ngay",
         btn_projects: "Khám phá dự án",
-        stat_1: "Dự án hoàn thành",
-        stat_2: "Sự hài lòng",
-        stat_3: "Năm kinh nghiệm",
-        stat_4: "Sẵn sàng hỗ trợ",
         p_eyebrow: "01 — DỰ ÁN & HỆ SINH THÁI",
         p_heading: "Các dự án tiêu biểu",
         filter_all: "Tất cả",
@@ -561,12 +490,12 @@
         bento_4_desc: "Không ngừng nâng cấp trải nghiệm người dùng với các hiệu ứng chuyển động mượt mà, bảng lệnh nhanh và các tính năng tương tác thực tế.",
         skills_eyebrow: "02 — KỸ NĂNG & CÔNG NGHỆ",
         skills_heading: "Năng lực chuyên môn",
-        journal_eyebrow: "04 — NHẬT KÝ & SUY NGẪM",
+        journal_eyebrow: "03 — NHẬT KÝ & SUY NGẪM",
         journal_heading: "Góc chia sẻ & Tư duy",
-        about_eyebrow: "05 — GIỚI THIỆU",
+        about_eyebrow: "04 — GIỚI THIỆU",
         about_heading: "Về Smshanft Collective",
         about_desc: "Được xây dựng từ một ý tưởng độc bản mã hóa qua những con số, <strong>Smshanft Collective</strong> là không gian cá nhân và dự án sáng tạo của Phạm Chí Đức. Nơi đây tập trung khai thác các giải pháp công nghệ, thiết kế tối giản và các sản phẩm mang dấu ấn cá tính riêng biệt.",
-        contact_eyebrow: "06 — LIÊN HỆ",
+        contact_eyebrow: "05 — LIÊN HỆ",
         contact_heading: "Kết nối với chúng tôi",
         form_title: "Gửi tin nhắn trực tiếp",
         form_name: "Họ và tên",
@@ -579,7 +508,6 @@
         nav_home: "Home",
         nav_projects: "Projects",
         nav_skills: "Skills",
-        nav_terminal: "Terminal",
         nav_journal: "Journal",
         nav_about: "About",
         nav_contact: "Contact",
@@ -588,10 +516,6 @@
         hero_desc: "Welcome to the digital space of Smshanft Collective – where creativity, technology, and unique ideas converge.",
         btn_contact: "Get in touch",
         btn_projects: "Explore projects",
-        stat_1: "Completed Projects",
-        stat_2: "Satisfaction Rate",
-        stat_3: "Years Experience",
-        stat_4: "Support Available",
         p_eyebrow: "01 — PROJECTS & ECOSYSTEM",
         p_heading: "Featured Projects",
         filter_all: "All",
@@ -604,12 +528,12 @@
         bento_4_desc: "Continuously upgrading user experience with smooth animations, command palette, and interactive features.",
         skills_eyebrow: "02 — SKILLS & TECHNOLOGIES",
         skills_heading: "Core Competencies",
-        journal_eyebrow: "04 — JOURNAL & THOUGHTS",
+        journal_eyebrow: "03 — JOURNAL & THOUGHTS",
         journal_heading: "Sharing & Insights",
-        about_eyebrow: "05 — ABOUT",
+        about_eyebrow: "04 — ABOUT",
         about_heading: "About Smshanft Collective",
         about_desc: "Built from a unique concept encoded through numbers, <strong>Smshanft Collective</strong> is the personal space and creative project of Phạm Chí Đức, focusing on technology solutions, minimalist design, and distinctive personal branding.",
-        contact_eyebrow: "06 — CONTACT",
+        contact_eyebrow: "05 — CONTACT",
         contact_heading: "Connect with us",
         form_title: "Send direct message",
         form_name: "Full Name",
@@ -651,45 +575,7 @@
       });
     }
 
-    // 4. INTERACTIVE TERMINAL LOGIC
-    const terminalInput = document.getElementById('terminalInput');
-    const terminalOutput = document.getElementById('terminalOutput');
-
-    terminalInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
-        const cmd = terminalInput.value.trim().toLowerCase();
-        let response = '';
-
-        if (cmd === 'help') {
-          response = 'Các lệnh khả dụng: <span style="color:#10b981">about</span>, <span style="color:#10b981">skills</span>, <span style="color:#10b981">journal</span>, <span style="color:#10b981">contact</span>, <span style="color:#10b981">theme</span>, <span style="color:#10b981">clear</span>';
-        } else if (cmd === 'about') {
-          response = 'Smshanft Collective được sáng lập bởi Phạm Chí Đức — Nơi hội tụ công nghệ và thiết kế tối giản.';
-        } else if (cmd === 'skills') {
-          response = 'Kỹ năng chính: HTML5, CSS3, JavaScript, UI/UX Design, Git, Responsive Web, SEO.';
-        } else if (cmd === 'journal') {
-          response = 'Đang chia sẻ các bài viết về UI/UX, thiết kế tối giản và tối ưu hiệu năng web thuần.';
-        } else if (cmd === 'contact') {
-          response = 'Email: duuck@gmail.com | Phone: 0962 058 971';
-        } else if (cmd === 'theme') {
-          toggleThemeFromCmd();
-          response = 'Đã chuyển đổi chế độ giao diện sáng/tối!';
-        } else if (cmd === 'clear') {
-          terminalOutput.innerHTML = '> Đã xóa màn hình Terminal.<br>';
-          terminalInput.value = '';
-          return;
-        } else if (cmd === '') {
-          response = '';
-        } else {
-          response = `Lệnh không hợp lệ: "${cmd}". Gõ <span style="color:#10b981">help</span> để được hỗ trợ.`;
-        }
-
-        terminalOutput.innerHTML += `<br>> ${terminalInput.value}<br>${response}`;
-        terminalInput.value = '';
-        terminalOutput.scrollTop = terminalOutput.scrollHeight;
-      }
-    });
-
-    // 5. CON TRỎ CHUỘT MƯỢT MÀ
+    // 4. CON TRỎ CHUỘT MƯỢT MÀ
     const cursor = document.getElementById('customCursor');
     let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0;
 
@@ -708,7 +594,7 @@
     }
     animateCursor();
 
-    // 6. CANVAS PARTICLES
+    // 5. CANVAS PARTICLES
     const canvas = document.getElementById('bg-canvas');
     const ctx = canvas.getContext('2d');
     let particlesArray = [];
@@ -757,7 +643,7 @@
     }
     animateParticles();
 
-    // 7. ĐỒNG HỒ THỜI GIAN THỰC (GMT+7)
+    // 6. ĐỒNG HỒ THỜI GIAN THỰC (GMT+7)
     function updateLocalTime() {
       const now = new Date();
       const options = { timeZone: 'Asia/Ho_Chi_Minh', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
@@ -768,7 +654,7 @@
     setInterval(updateLocalTime, 1000);
     updateLocalTime();
 
-    // 8. LIGHT/DARK MODE TOGGLE
+    // 7. LIGHT/DARK MODE TOGGLE
     const themeToggleBtn = document.getElementById('themeToggle');
     const themeIcon = document.getElementById('themeIcon');
     
@@ -793,7 +679,7 @@
       }
     }
 
-    // 9. TYPING ANIMATION
+    // 8. TYPING ANIMATION
     const words = ["Smshanft Collective.", "Innovation.", "Modern Design.", "Creative Ideas."];
     let i = 0;
 
@@ -830,7 +716,7 @@
     }
     typingEffect();
 
-    // 10. BACK TO TOP BUTTON & SCROLL LISTENER
+    // 9. BACK TO TOP BUTTON & SCROLL LISTENER
     const backToTopBtn = document.getElementById('backToTopBtn');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 400) {
@@ -843,7 +729,7 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // 11. COMMAND PALETTE (CMD + K)
+    // 10. COMMAND PALETTE (CMD + K)
     const cmdBtn = document.getElementById('cmdBtn');
     const cmdOverlay = document.getElementById('cmdOverlay');
     const cmdInput = document.getElementById('cmdInput');
